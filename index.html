@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew Wiswall</title>
+<meta name="description" content="Matthew Wiswall, Professor of Economics at New York University. Research on child development, education, and applied econometrics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f8f8f6;
+    --surface: #ffffff;
+    --ink: #1b1f26;
+    --muted: #5f6673;
+    --rule: #dcdfe4;
+    --accent: #29507a;
+    --accent-ink: #29507a;
+    --chip-bg: #eef1f5;
+    --chip-border: #d3d9e2;
+    --media-ink: #6b4b1f;
+    --media-bg: #f5efe4;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14171c;
+      --surface: #1b1f26;
+      --ink: #e6e8ec;
+      --muted: #9aa3b0;
+      --rule: #2b313a;
+      --accent: #8fb3e0;
+      --accent-ink: #a9c4e8;
+      --chip-bg: #1e242c;
+      --chip-border: #343c48;
+      --media-ink: #d9bc8a;
+      --media-bg: #2a2418;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14171c;
+    --surface: #1b1f26;
+    --ink: #e6e8ec;
+    --muted: #9aa3b0;
+    --rule: #2b313a;
+    --accent: #8fb3e0;
+    --accent-ink: #a9c4e8;
+    --chip-bg: #1e242c;
+    --chip-border: #343c48;
+    --media-ink: #d9bc8a;
+    --media-bg: #2a2418;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.55;
+    font-variant-numeric: tabular-nums;
+  }
+  a { color: var(--accent-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .page {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* Header */
+  .masthead {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 2.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+  .masthead .role {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--muted);
+  }
+  .masthead .role span { display: block; }
+  .masthead .contact {
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+  }
+  .portrait {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 6px;
+    display: block;
+  }
+
+  /* In-page nav */
+  .toc {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+  }
+
+  /* Sections */
+  section { margin-top: 3rem; }
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 0 0 0.35rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+    text-wrap: balance;
+  }
+  .lede {
+    max-width: 65ch;
+    margin: 0 0 1.5rem;
+    color: var(--muted);
+  }
+
+  /* Paper list */
+  .papers {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .paper {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0 0.75rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .paper:last-child { border-bottom: 1px solid var(--rule); }
+  /* 28 published articles, numbered newest-first to match the CV. Bump the reset value when adding one. */
+  ol.papers { counter-reset: paper 29; }
+  ol.papers .paper::before {
+    counter-increment: paper -1;
+    content: counter(paper);
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-top: 0.25rem;
+  }
+  ul.papers .paper { grid-template-columns: 1fr; }
+  .paper .title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.08rem;
+    line-height: 1.35;
+    text-wrap: pretty;
+  }
+  .paper .meta {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 0.97rem;
+  }
+  .paper .meta em { font-style: italic; }
+  .paper .status {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+  }
+  .chip {
+    display: inline-block;
+    padding: 0.18rem 0.6rem;
+    border: 1px solid var(--chip-border);
+    background: var(--chip-bg);
+    border-radius: 999px;
+    color: var(--accent-ink);
+    line-height: 1.4;
+  }
+  .chip:hover { text-decoration: none; border-color: var(--accent); }
+  .media {
+    margin: 0.55rem 0 0;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .media .lab {
+    display: inline-block;
+    padding: 0.05rem 0.45rem;
+    margin-right: 0.35rem;
+    border-radius: 3px;
+    background: var(--media-bg);
+    color: var(--media-ink);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    vertical-align: 1px;
+  }
+  .media a { color: var(--ink); border-bottom: 1px solid var(--chip-border); }
+  .media a:hover { text-decoration: none; border-bottom-color: var(--accent); }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .page { padding: 2rem 1.1rem 4rem; }
+    .masthead { grid-template-columns: 1fr; gap: 1.25rem; }
+    .portrait { width: 120px; height: 120px; order: -1; }
+    .masthead h1 { font-size: 1.85rem; }
+    .paper { grid-template-columns: 2rem 1fr; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .chip { transition: border-color 120ms ease; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div>
+      <h1>Matthew J. Wiswall</h1>
+      <p class="role">
+        <span>Professor of Economics</span>
+        <span>New York University</span>
+        <span>Faculty Research Associate, National Bureau of Economic Research</span>
+      </p>
+      <ul class="contact">
+        <li><a href="mailto:matt.wiswall@gmail.com">matt.wiswall@gmail.com</a></li>
+        <li><a href="cv_wiswall.pdf">Curriculum vitae (PDF)</a></li>
+        <li><a href="short_bio_wiswall.pdf">Short bio (PDF)</a></li>
+        <li><a href="https://scholar.google.com/citations?user=EDP7TBQAAAAJ&amp;hl=en">Google Scholar</a></li>
+        <li><a href="https://www.nber.org/people/matthew_wiswall">NBER</a></li>
+      </ul>
+      <ul class="toc">
+        <li><a href="#published">Published articles</a></li>
+        <li><a href="#working">Working papers</a></li>
+        <li><a href="#chapters">Book chapters</a></li>
+        <li><a href="#policy">Policy writing</a></li>
+      </ul>
+    </div>
+    <img class="portrait" src="wiswall_photo.jpg" alt="Matthew Wiswall" width="150" height="150">
+  </header>
+
+  <section id="about">
+    <p class="lede" style="color: var(--ink); margin-top: 2.5rem;">
+      I am an applied microeconomist working on child development, education, and applied econometric methods.
+      My research has been funded by the National Science Foundation, the U.S. Department of Education, the William T. Grant Foundation,
+      and the Smith Richardson Foundation. I previously held faculty positions at Johns Hopkins University, the University of Wisconsin&ndash;Madison,
+      and Arizona State University, and served as an Associate Editor of <em>Econometrica</em> and <em>Quantitative Economics</em>.
+    </p>
+  </section>
+
+  <section id="published">
+    <p class="eyebrow">Research</p>
+    <h2>Peer-reviewed published articles</h2>
+    <ol class="papers" reversed>
+
+      <li class="paper">
+        <div>
+          <p class="title">Parenting with Patience: Parental Incentives and Child Development</p>
+          <p class="meta">with Daniela Del Boca, Christopher J. Flinn, and Ewout Verriest &middot; <em>Journal of Political Economy</em> 134 (1), 2026</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1086/738481">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w25596">NBER Working Paper 25596</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Home and School in the Development of Children</p>
+          <p class="meta">with Francesco Agostinelli and Morteza Saharkhiz &middot; <em>International Economic Review</em> 66 (2), 2025</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1111/iere.12774">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w26037">NBER Working Paper 26037</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Estimating the Technology of Children&rsquo;s Skill Formation</p>
+          <p class="meta">with Francesco Agostinelli &middot; <em>Journal of Political Economy</em> 133 (3), 2025</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1086/733396">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w22442">NBER Working Paper 22442</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">The Impacts of Same and Opposite Gender Alumni Speakers on Interest in Economics</p>
+          <p class="meta">with Arpita Patnaik, Gwyn C. Pauley, and Joanna Venator &middot; <em>Economics of Education Review</em> 102, 2024</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0272775724000736">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w30983">NBER Working Paper 30983</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">The Role of Heterogeneous Risk Preferences, Discount Rates, and Earnings Expectations in College Major Choice</p>
+          <p class="meta">with Arpita Patnaik, Joanna Venator, and Basit Zafar &middot; <em>Journal of Econometrics</em> 231 (1), 2022, pp. 98&ndash;122</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0304407620302773">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w26785">NBER Working Paper 26785</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Inequality in Early Care Experienced by U.S. Children</p>
+          <p class="meta">with Sarah Flood, Joel F.S. McMurry, and Aaron Sojourner &middot; <em>Journal of Economic Perspectives</em> 36 (2), 2022, pp. 199&ndash;222</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.aeaweb.org/articles?id=10.1257/jep.36.2.199">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w29249">NBER Working Paper 29249</a></li>
+          </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.nytimes.com/2021/10/06/upshot/child-care-biden.html">New York Times</a>
+          </p>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Human Capital Investments and Expectations about Career and Family</p>
+          <p class="meta">with Basit Zafar &middot; <em>Journal of Political Economy</em> 129 (5), 2021, pp. 1361&ndash;1424</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1086/713100">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w22543">NBER Working Paper 22543</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Making Summer Matter: The Impact of Youth Employment on Academic Performance</p>
+          <p class="meta">with Amy Ellen Schwartz, Jacob Leos-Urbel, and Joel McMurry &middot; <em>Quantitative Economics</em> 12 (2), 2021, pp. 477&ndash;504</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.3982/QE883">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w21470">NBER Working Paper 21470</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Child Care and Child Care Policy: Existing Policies, Their Effects, and Reforms</p>
+          <p class="meta">with V. Joseph Hotz &middot; <em>The ANNALS of the American Academy of Political and Social Science</em> 686 (1), 2019, pp. 310&ndash;338</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1177/0002716219884078">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Preference for the Workplace, Human Capital, and Gender</p>
+          <p class="meta">with Basit Zafar &middot; <em>Quarterly Journal of Economics</em> 133 (1), 2018, pp. 457&ndash;507</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1093/qje/qjx035">Published version</a></li>
+            <li><a class="chip" href="https://www.nber.org/papers/w22173">NBER Working Paper 22173</a></li>
+          </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.theatlantic.com/business/archive/2016/04/too-many-elite-american-men-are-obsessed-with-work/479940/">The Atlantic</a>
+          </p>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Preferences and Biases in Educational Choices and Labor Market Expectations: Shrinking the Black Box of Gender</p>
+          <p class="meta">with Ernesto Reuben and Basit Zafar &middot; <em>Economic Journal</em> 127 (604), 2017, pp. 2153&ndash;2186</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1111/ecoj.12350">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Beyond LATE with a Discrete Instrument: Heterogeneity in the Quantity&ndash;Quality Interaction of Children</p>
+          <p class="meta">with Christian Brinch and Magne Mogstad &middot; <em>Journal of Political Economy</em> 125 (4), 2017, pp. 985&ndash;1039</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1086/692712">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Transfers to Households with Children and Child Development</p>
+          <p class="meta">with Daniela Del Boca and Christopher Flinn &middot; <em>Economic Journal</em> 126 (596), 2016, pp. F136&ndash;F183</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1111/ecoj.12340">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Testing the Quantity&ndash;Quality Model of Fertility: Estimation Using Unrestricted Family Size Models</p>
+          <p class="meta">with Magne Mogstad &middot; <em>Quantitative Economics</em> 7 (1), 2016, pp. 157&ndash;192</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.3982/QE322">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Are All Schools Created Equal? Learning Environments in Small and Large Public High Schools in New York City</p>
+          <p class="meta">with Amy Ellen Schwartz and Leanna Stiefel &middot; <em>Economics of Education Review</em> 52, 2016, pp. 272&ndash;290</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0272775716301467">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Does Small High School Reform Lift Urban School Districts? Evidence from New York City</p>
+          <p class="meta">with Amy Ellen Schwartz and Leanna Stiefel &middot; <em>Educational Researcher</em> 44 (3), 2015, pp. 161&ndash;172</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.3102/0013189X15579187">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">How Do College Students Respond to Public Information about Earnings?</p>
+          <p class="meta">with Basit Zafar &middot; <em>Journal of Human Capital</em> 9 (2), 2015, pp. 117&ndash;169</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1086/681542">Published version</a></li>
+          </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.washingtonpost.com/education/2021/11/01/college-degree-value-major/">Washington Post</a>
+          </p>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Determinants of College Major Choice: Identification Using an Information Experiment</p>
+          <p class="meta">with Basit Zafar &middot; <em>Review of Economic Studies</em> 82 (2), 2015, pp. 791&ndash;824</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1093/restud/rdu044">Published version</a></li>
+          </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.wsj.com/articles/do-college-students-pick-majors-based-on-potential-earnings-1459130765">Wall Street Journal</a>
+          </p>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Household Choices and Child Development</p>
+          <p class="meta">with Daniela Del Boca and Christopher Flinn &middot; <em>Review of Economic Studies</em> 81 (1), 2014, pp. 137&ndash;185</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1093/restud/rdt026">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Evolution of Gender Differences in Post-Secondary Human Capital Investments: College Majors</p>
+          <p class="meta">with Ahu Gemici &middot; <em>International Economic Review</em> 55 (1), 2014, pp. 23&ndash;56</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1111/iere.12040">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Does Attending a STEM High School Improve Student Performance? Evidence from New York City</p>
+          <p class="meta">with Amy Ellen Schwartz, Leanna Stiefel, and Jessica Boccardo &middot; <em>Economics of Education Review</em> 40, 2014, pp. 93&ndash;105</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0272775714000181">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Do Small Schools Improve Performance in Large, Urban Districts? Causal Evidence from New York City</p>
+          <p class="meta">with Amy Ellen Schwartz and Leanna Stiefel &middot; <em>Journal of Urban Economics</em> 77, 2013, pp. 27&ndash;40</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0094119013000326">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">The Dynamics of Teacher Quality</p>
+          <p class="meta"><em>Journal of Public Economics</em> 100, 2013, pp. 61&ndash;78</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0047272713000194">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">What Linear Estimators Miss: Re-Examining the Effects of Family Income on Child Outcomes</p>
+          <p class="meta">with Katrine V. L&oslash;ken and Magne Mogstad &middot; <em>American Economic Journal: Applied Economics</em> 4 (2), 2012, pp. 1&ndash;35</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.aeaweb.org/articles?id=10.1257/app.4.2.1">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Instrumental Variables Estimation with Partially Missing Instruments</p>
+          <p class="meta">with Magne Mogstad &middot; <em>Economics Letters</em> 114 (2), 2012, pp. 186&ndash;189</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0165176511003934">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Risk Aversion and Support for Merit Pay: Theory and Evidence from Minnesota&rsquo;s Q Comp Program</p>
+          <p class="meta">with Carl Nadler &middot; <em>Education Finance and Policy</em> 6 (1), 2011, pp. 75&ndash;104</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1162/EDFP_a_00023">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Before and After: Gender Transitions, Human Capital, and Workplace Experiences</p>
+          <p class="meta">with Kristen Schilt &middot; <em>B.E. Journal of Economic Analysis &amp; Policy</em> 8 (1), 2008</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.2202/1935-1682.1862">Published version</a></li>
+          </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="http://content.time.com/time/nation/article/0,8599,1847194,00.html">Time</a>,
+            <a href="https://economix.blogs.nytimes.com/2008/09/25/before-that-sex-change-think-about-your-next-paycheck/">New York Times</a>,
+            <a href="https://hbr.org/2008/10/if-women-were-more-like-men">Harvard Business Review</a>
+          </p>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">A Parallel Implementation of the Simplex Function Minimization Routine</p>
+          <p class="meta">with Donghoon Lee &middot; <em>Computational Economics</em> 30 (2), 2007, pp. 171&ndash;187</p>
+          <ul class="links">
+            <li><a class="chip" href="https://doi.org/10.1007/s10614-007-9094-2">Published version</a></li>
+          </ul>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <section id="working">
+    <p class="eyebrow">Research</p>
+    <h2>Working papers</h2>
+    <ul class="papers">
+
+      <li class="paper">
+        <div>
+          <p class="title">An Equilibrium Model of the Impact of Increased Public Investment in Early Childhood Education</p>
+          <p class="meta">with Jonathan Borowsky, Jessica H. Brown, Elizabeth E. Davis, Chloe Gibbs, Chris M. Herbst, Aaron Sojourner, and Erdal Tekin &middot; 2022</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.nber.org/papers/w30140">NBER Working Paper 30140</a></li>
+            <li><a class="chip" href="https://www.brookings.edu/blog/brown-center-chalkboard/2022/06/14/fixing-child-care-what-expanded-public-subsidies-could-mean-for-children-families-and-teachers/">Brookings summary</a></li>
+          </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.nytimes.com/2022/07/07/business/economy/women-labor-caregiving.html">New York Times</a>,
+            <a href="https://www.washingtonpost.com/business/2022/06/30/child-care-shortage-causing-labor-shortage/">Washington Post</a>,
+            <a href="https://www.bloomberg.com/news/articles/2022-06-13/us-child-care-aid-would-supercharge-moms-employment-study-says">Bloomberg</a>,
+            <a href="https://www.axios.com/2022/06/17/childcare-subsidies-would-send-12-million-women-into-the-workforce-new-paper-finds">Axios</a>,
+            <a href="https://www.marketplace.org/2022/07/07/lack-of-affordable-child-care-is-hurting-parents-and-the-economy/">Marketplace</a>,
+            <a href="https://www.huffpost.com/entry/child-care-crisis-working-parents-kids_n_62b359c1e4b06169caa13a0f">HuffPost</a>,
+            <a href="https://earlylearningnation.com/2022/06/economists-find-investing-in-child-care-will-dramatically-reduce-costs-increase-mothers-employment-and-increase-quality-care/">Early Learning Nation</a>
+          </p>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Early Childhood Care and Cognitive Development</p>
+          <p class="meta">with Juan Chaparro and Aaron Sojourner &middot; 2020 &middot; <span class="status">Revise and resubmit, <em>Journal of Political Economy</em></span></p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.nber.org/papers/w26813">NBER Working Paper 26813</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Labor Market Search with Imperfect Information and Learning</p>
+          <p class="meta">with John J. Conlon, Laura Pilossoph, and Basit Zafar &middot; 2018</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.nber.org/papers/w24988">NBER Working Paper 24988</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Identification of Dynamic Latent Factor Models: The Implications of Re-Normalization in a Model of Child Development</p>
+          <p class="meta">with Francesco Agostinelli &middot; 2016</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.nber.org/papers/w22441">NBER Working Paper 22441</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Licensing and Occupational Sorting in the Market for Teachers</p>
+          <p class="meta">2010</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.dropbox.com/s/3w898d5otklscv1/wiswall_licensing_2007.pdf?dl=0">Paper (PDF)</a></li>
+          </ul>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <section id="chapters">
+    <p class="eyebrow">Research</p>
+    <h2>Book chapters</h2>
+    <ul class="papers">
+      <li class="paper">
+        <div>
+          <p class="title">College Majors</p>
+          <p class="meta">with Arpita Patnaik and Basit Zafar &middot; in <em>The Routledge Handbook of the Economics of Education</em>, ed. Brian P. McCall, 2021</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.nber.org/papers/w27645">NBER Working Paper 27645</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="policy">
+    <p class="eyebrow">Research</p>
+    <h2>Policy briefs and short pieces</h2>
+    <ul class="papers">
+
+      <li class="paper">
+        <div>
+          <p class="title">Fixing Child Care: What Expanded Public Subsidies Could Mean for Children, Families, and Teachers</p>
+          <p class="meta">with Jonathan Borowsky, Jessica H. Brown, Elizabeth E. Davis, Chloe Gibbs, Chris M. Herbst, Aaron Sojourner, and Erdal Tekin &middot; Brookings, June 2022</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.brookings.edu/blog/brown-center-chalkboard/2022/06/14/fixing-child-care-what-expanded-public-subsidies-could-mean-for-children-families-and-teachers/">Read at Brookings</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">New Approaches to Understanding Choice of Major</p>
+          <p class="meta">with Basit Zafar &middot; <em>NBER Reporter</em> 2021 (2)</p>
+          <ul class="links">
+            <li><a class="chip" href="https://www.nber.org/reporter/2021number2/new-approaches-understanding-choice-major">Read at NBER</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="paper">
+        <div>
+          <p class="title">Private Health Care Spending and Medicaid Expansion: Evidence for Wisconsin</p>
+          <p class="meta">with Gwyn C. Pauley &middot; Center for Research on the Wisconsin Economy, April 2019</p>
+          <ul class="links">
+            <li><a class="chip" href="https://crowe.wisc.edu/private-health-care-spending-and-medicaid-expansion-evidence-for-wisconsin/">Report</a></li>
+            <li><a class="chip" href="https://www.dropbox.com/s/bfhjkicukln58g6/medicaid_response_2019_06_25.pdf?dl=0">Follow-up report, June 2019 (PDF)</a></li>
+          </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://madison.com/wsj/news/local/health-med-fit/robin-vos-unmoved-by-poll-showing-support-for-medicaid-expansion-sometimes-you-have-to-lead/article_56856069-bea4-5ddb-8569-095e99ca7017.html">Wisconsin State Journal</a>
+          </p>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <footer>
+    Last updated September 2026.
+  </footer>
+
+</div>
+</body>
+</html>
