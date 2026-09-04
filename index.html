@@ -21,6 +21,8 @@
     --chip-border: #d3d9e2;
     --media-ink: #6b4b1f;
     --media-bg: #f5efe4;
+    --policy-ink: #2f5a3f;
+    --policy-bg: #e9f2ec;
     --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
     --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   }
@@ -37,6 +39,8 @@
       --chip-border: #343c48;
       --media-ink: #d9bc8a;
       --media-bg: #2a2418;
+      --policy-ink: #9cc9a8;
+      --policy-bg: #1c2a20;
     }
   }
   :root[data-theme="dark"] {
@@ -51,6 +55,8 @@
     --chip-border: #343c48;
     --media-ink: #d9bc8a;
     --media-bg: #2a2418;
+    --policy-ink: #9cc9a8;
+    --policy-bg: #1c2a20;
   }
 
   * { box-sizing: border-box; }
@@ -241,6 +247,8 @@
   }
   .media a { color: var(--ink); border-bottom: 1px solid var(--chip-border); }
   .media a:hover { text-decoration: none; border-bottom-color: var(--accent); }
+  .media + .media { margin-top: 0.2rem; }
+  .media.policy .lab { background: var(--policy-bg); color: var(--policy-ink); }
 
   footer {
     margin-top: 4rem;
@@ -352,6 +360,10 @@
             <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0272775724000736">Published version</a></li>
             <li><a class="chip" href="https://www.nber.org/papers/w30983">NBER Working Paper 30983</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://marginalrevolution.com/marginalrevolution/2023/02/the-impacts-of-same-and-opposite-gender-alumni-speakers-on-interest-in-economics.html">Marginal Revolution</a>,
+            <a href="https://cepr.org/voxeu/columns/what-undergraduate-women-economics-challenge-did-economics">VoxEU</a>
+          </p>
         </div>
       </li>
 
@@ -375,7 +387,13 @@
             <li><a class="chip" href="https://www.nber.org/papers/w29249">NBER Working Paper 29249</a></li>
           </ul>
           <p class="media"><span class="lab">Media</span>
-            <a href="https://www.nytimes.com/2021/10/06/upshot/child-care-biden.html">New York Times</a>
+            <a href="https://www.nytimes.com/2021/10/06/upshot/child-care-biden.html">New York Times</a>,
+            <a href="https://www.aeaweb.org/research/charts/mothers-socioeconomic-status-time-spent">AEA Research Highlights</a>,
+            <a href="https://www.nber.org/reporter/2024number2/program-report-children-and-families">NBER Reporter</a>
+          </p>
+          <p class="media policy"><span class="lab">Policy</span>
+            <a href="https://www.govinfo.gov/content/pkg/ERP-2023/pdf/ERP-2023-chapter4.pdf">Economic Report of the President (2023)</a>,
+            <a href="https://www.banking.senate.gov/imo/media/doc/edwards_testimony_9-20-23.pdf">U.S. Senate Banking Committee testimony (2023)</a>
           </p>
         </div>
       </li>
@@ -388,6 +406,9 @@
             <li><a class="chip" href="https://doi.org/10.1086/713100">Published version</a></li>
             <li><a class="chip" href="https://www.nber.org/papers/w22543">NBER Working Paper 22543</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://cepr.org/voxeu/columns/college-majors-affect-more-just-average-earnings">VoxEU</a>
+          </p>
         </div>
       </li>
 
@@ -399,6 +420,10 @@
             <li><a class="chip" href="https://doi.org/10.3982/QE883">Published version</a></li>
             <li><a class="chip" href="https://www.nber.org/papers/w21470">NBER Working Paper 21470</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.politico.com/magazine/story/2017/09/21/summer-jobs-program-cities-policy-analysis-215632">Politico Magazine</a>,
+            <a href="https://www.brookings.edu/wp-content/uploads/2016/07/Summer-Jobs-Ross-7-12-16.pdf">Brookings</a>
+          </p>
         </div>
       </li>
 
@@ -409,6 +434,9 @@
           <ul class="links">
             <li><a class="chip" href="https://doi.org/10.1177/0002716219884078">Published version</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://equitablegrowth.org/research-paper/the-child-care-economy/">Washington Center for Equitable Growth</a>
+          </p>
         </div>
       </li>
 
@@ -421,7 +449,10 @@
             <li><a class="chip" href="https://www.nber.org/papers/w22173">NBER Working Paper 22173</a></li>
           </ul>
           <p class="media"><span class="lab">Media</span>
-            <a href="https://www.theatlantic.com/business/archive/2016/04/too-many-elite-american-men-are-obsessed-with-work/479940/">The Atlantic</a>
+            <a href="https://www.theatlantic.com/business/archive/2016/04/too-many-elite-american-men-are-obsessed-with-work/479940/">The Atlantic</a>,
+            <a href="https://www.chicagobooth.edu/review/how-get-more-woman-ceos">Chicago Booth Review</a>,
+            <a href="https://www.aei.org/carpe-diem/new-study-finds-gender-differences-in-preferences-for-higher-earnings-vs-other-job-attributes/">AEI</a>,
+            <a href="https://cepr.org/voxeu/columns/discrimination-work-conditions-case-sexual-harassment">VoxEU</a>
           </p>
         </div>
       </li>
@@ -433,6 +464,9 @@
           <ul class="links">
             <li><a class="chip" href="https://doi.org/10.1111/ecoj.12350">Published version</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://cepr.org/voxeu/columns/early-gender-gaps-among-university-graduates">VoxEU</a>
+          </p>
         </div>
       </li>
 
@@ -483,6 +517,10 @@
           <ul class="links">
             <li><a class="chip" href="https://doi.org/10.3102/0013189X15579187">Published version</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.usnews.com/news/articles/2015/09/29/once-sold-as-the-solution-small-high-schools-are-on-the-back-burner">U.S. News &amp; World Report / Hechinger Report</a>,
+            <a href="https://thesocietypages.org/edsociety/2015/04/27/shrink-your-high-school/">The Society Pages</a>
+          </p>
         </div>
       </li>
 
@@ -494,7 +532,9 @@
             <li><a class="chip" href="https://doi.org/10.1086/681542">Published version</a></li>
           </ul>
           <p class="media"><span class="lab">Media</span>
-            <a href="https://www.washingtonpost.com/education/2021/11/01/college-degree-value-major/">Washington Post</a>
+            <a href="https://www.washingtonpost.com/education/2021/11/01/college-degree-value-major/">Washington Post</a>,
+            <a href="https://cepr.org/voxeu/columns/major-decisions-how-labour-market-opportunities-affect-students-choice-subjects">VoxEU (2017)</a>,
+            <a href="https://cepr.org/voxeu/columns/college-majors-affect-more-just-average-earnings">VoxEU (2022)</a>
           </p>
         </div>
       </li>
@@ -507,7 +547,9 @@
             <li><a class="chip" href="https://doi.org/10.1093/restud/rdu044">Published version</a></li>
           </ul>
           <p class="media"><span class="lab">Media</span>
-            <a href="https://www.wsj.com/articles/do-college-students-pick-majors-based-on-potential-earnings-1459130765">Wall Street Journal</a>
+            <a href="https://www.wsj.com/articles/do-college-students-pick-majors-based-on-potential-earnings-1459130765">Wall Street Journal</a>,
+            <a href="https://cepr.org/voxeu/columns/major-decisions-how-labour-market-opportunities-affect-students-choice-subjects">VoxEU (2017)</a>,
+            <a href="https://cepr.org/voxeu/columns/college-majors-affect-more-just-average-earnings">VoxEU (2022)</a>
           </p>
         </div>
       </li>
@@ -519,6 +561,9 @@
           <ul class="links">
             <li><a class="chip" href="https://doi.org/10.1093/restud/rdt026">Published version</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://population-europe.eu/research/popdigests/money-cant-buy-time">Population Europe</a>
+          </p>
         </div>
       </li>
 
@@ -539,6 +584,12 @@
           <ul class="links">
             <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0272775714000181">Published version</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://ascd.org/el/articles/stem-schools-produce-mixed-results">ASCD Educational Leadership</a>
+          </p>
+          <p class="media policy"><span class="lab">Policy</span>
+            <a href="https://beta.dol.gov/research-data/clear/studies/does-attending-stem-high-school-improve-student-performance-evidence-new-york-city-wiswall-et-al">U.S. Department of Labor CLEAR evidence review</a>
+          </p>
         </div>
       </li>
 
@@ -559,6 +610,12 @@
           <ul class="links">
             <li><a class="chip" href="https://www.sciencedirect.com/science/article/pii/S0047272713000194">Published version</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://freakonomics.com/2013/08/losing-experienced-teachers-is-bad-for-schools-right/">Freakonomics</a>,
+            <a href="https://www.shankerinstitute.org/blog/recent-evidence-teacher-experience-and-productivity">Albert Shanker Institute</a>,
+            <a href="https://fordhaminstitute.org/national/research/think-again-do-returns-teacher-experience-fizzle-out">Thomas B. Fordham Institute</a>,
+            <a href="https://niot.org.uk/insights/do-teachers-get-better-with-experience">National Institute of Teaching (UK)</a>
+          </p>
         </div>
       </li>
 
@@ -569,6 +626,9 @@
           <ul class="links">
             <li><a class="chip" href="https://www.aeaweb.org/articles?id=10.1257/app.4.2.1">Published version</a></li>
           </ul>
+          <p class="media policy"><span class="lab">Policy</span>
+            <a href="https://www.ssb.no/en/inntekt-og-forbruk/inntekt-og-formue/artikler/measures-to-reduce-and-prevent-children-growing-up-in-persistent-low-income-households/_/attachment/inline/005804b1-9f1d-4d74-8b49-af82f54ce2ed:6023a994f1fb862d3a4cd418c80aeeab5dab93dd/RAPP2026-15.pdf">Statistics Norway report on child poverty (2026)</a>
+          </p>
         </div>
       </li>
 
@@ -600,9 +660,15 @@
             <li><a class="chip" href="https://doi.org/10.2202/1935-1682.1862">Published version</a></li>
           </ul>
           <p class="media"><span class="lab">Media</span>
-            <a href="http://content.time.com/time/nation/article/0,8599,1847194,00.html">Time</a>,
+            <a href="https://time.com/archive/6913483/if-women-were-more-like-men-why-females-earn-less/">Time</a>,
             <a href="https://economix.blogs.nytimes.com/2008/09/25/before-that-sex-change-think-about-your-next-paycheck/">New York Times</a>,
-            <a href="https://hbr.org/2008/10/if-women-were-more-like-men">Harvard Business Review</a>
+            <a href="https://hbr.org/2008/10/if-women-were-more-like-men">Harvard Business Review</a>,
+            <a href="https://www.seattlepi.com/business/article/pay-disparities-exist-after-gender-change-study-1288746.php">Associated Press</a>,
+            <a href="https://www.huffpost.com/entry/disposable-income-how-gen_b_220984">HuffPost</a>,
+            <a href="https://www.americanprogress.org/article/the-gay-and-transgender-wage-gap/">Center for American Progress</a>,
+            <a href="https://macleans.ca/society/for-transgender-women-the-pay-equity-gap-is-even-wider/">Maclean&rsquo;s</a>,
+            <a href="https://nwlc.org/wp-content/uploads/2021/11/2021-who-what-why-wage-gap.pdf">National Women&rsquo;s Law Center</a>,
+            <a href="https://wol.iza.org/articles/trans-people-well-being-and-labor-market-outcomes/v1">IZA World of Labor</a>
           </p>
         </div>
       </li>
@@ -625,7 +691,7 @@
     <h2>Working papers</h2>
     <ul class="papers">
 
-      <li class="paper">
+      <li class="paper" id="ece-equilibrium">
         <div>
           <p class="title">An Equilibrium Model of the Impact of Increased Public Investment in Early Childhood Education</p>
           <p class="meta">with Jonathan Borowsky, Jessica H. Brown, Elizabeth E. Davis, Chloe Gibbs, Chris M. Herbst, Aaron Sojourner, and Erdal Tekin &middot; 2022</p>
@@ -640,7 +706,14 @@
             <a href="https://www.axios.com/2022/06/17/childcare-subsidies-would-send-12-million-women-into-the-workforce-new-paper-finds">Axios</a>,
             <a href="https://www.marketplace.org/2022/07/07/lack-of-affordable-child-care-is-hurting-parents-and-the-economy/">Marketplace</a>,
             <a href="https://www.huffpost.com/entry/child-care-crisis-working-parents-kids_n_62b359c1e4b06169caa13a0f">HuffPost</a>,
-            <a href="https://earlylearningnation.com/2022/06/economists-find-investing-in-child-care-will-dramatically-reduce-costs-increase-mothers-employment-and-increase-quality-care/">Early Learning Nation</a>
+            <a href="https://earlylearningnation.com/2022/06/economists-find-investing-in-child-care-will-dramatically-reduce-costs-increase-mothers-employment-and-increase-quality-care/">Early Learning Nation</a>,
+            <a href="https://www.nber.org/reporter/2024number2/program-report-children-and-families">NBER Reporter</a>,
+            <a href="https://equitablegrowth.org/research-paper/a-review-of-the-state-of-child-care-in-the-united-states/">Washington Center for Equitable Growth</a>
+          </p>
+          <p class="media policy"><span class="lab">Policy</span>
+            <a href="https://www.govinfo.gov/content/pkg/ERP-2023/pdf/ERP-2023-chapter4.pdf">Economic Report of the President (2023)</a>,
+            <a href="https://bidenwhitehouse.archives.gov/omb/briefing-room/2023/11/02/state-breakdown-the-biden-harris-administrations-funding-request-would-help-prevent-families-across-the-country-from-losing-child-care/">White House Office of Management and Budget (2023)</a>,
+            <a href="https://www.banking.senate.gov/imo/media/doc/edwards_testimony_9-20-23.pdf">U.S. Senate Banking Committee testimony (2023)</a>
           </p>
         </div>
       </li>
@@ -652,6 +725,12 @@
           <ul class="links">
             <li><a class="chip" href="https://www.nber.org/papers/w26813">NBER Working Paper 26813</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="https://www.irp.wisc.edu/resource/aaron-sojourner-and-matt-wiswall-on-the-value-of-investments-in-quality-child-care/">Institute for Research on Poverty podcast</a>
+          </p>
+          <p class="media policy"><span class="lab">Policy</span>
+            <a href="https://www.brookings.edu/articles/increasing-federal-investment-in-childrens-early-care-and-education-to-raise-quality-access-and-affordability/">Hamilton Project, Brookings (2021)</a>
+          </p>
         </div>
       </li>
 
@@ -716,6 +795,9 @@
           <ul class="links">
             <li><a class="chip" href="https://www.brookings.edu/blog/brown-center-chalkboard/2022/06/14/fixing-child-care-what-expanded-public-subsidies-could-mean-for-children-families-and-teachers/">Read at Brookings</a></li>
           </ul>
+          <p class="media"><span class="lab">Media</span>
+            <a href="#ece-equilibrium">See coverage listed with the working paper</a>
+          </p>
         </div>
       </li>
 
@@ -738,7 +820,14 @@
             <li><a class="chip" href="https://www.dropbox.com/s/bfhjkicukln58g6/medicaid_response_2019_06_25.pdf?dl=0">Follow-up report, June 2019 (PDF)</a></li>
           </ul>
           <p class="media"><span class="lab">Media</span>
-            <a href="https://madison.com/wsj/news/local/health-med-fit/robin-vos-unmoved-by-poll-showing-support-for-medicaid-expansion-sometimes-you-have-to-lead/article_56856069-bea4-5ddb-8569-095e99ca7017.html">Wisconsin State Journal</a>
+            <a href="https://madison.com/wsj/news/local/health-med-fit/robin-vos-unmoved-by-poll-showing-support-for-medicaid-expansion-sometimes-you-have-to-lead/article_56856069-bea4-5ddb-8569-095e99ca7017.html">Wisconsin State Journal (April 2019)</a>,
+            <a href="https://madison.com/news/local/health-med-fit/article_db1f23f6-9815-575b-a243-bc74e29d9c17.html">Wisconsin State Journal (May 2019)</a>,
+            <a href="https://biztimes.com/uw-study-claims-medicaid-expansion-could-save-state-100-million-annually/">BizTimes Milwaukee</a>,
+            <a href="https://badgerherald.com/news/2019/04/17/uw-economics-professors-find-medicaid-expansion-could-save-wisconsin-100-million/">Badger Herald</a>,
+            <a href="https://wisconsinhealthnews.com/2019/06/26/uw-think-tank-researchers-revise-down-projected-costs-of-medicaid-expansion/">Wisconsin Health News</a>
+          </p>
+          <p class="media policy"><span class="lab">Policy</span>
+            <a href="https://oci.wi.gov/Pages/PressReleases/20190507Expansion.aspx">Wisconsin Office of the Commissioner of Insurance (2019)</a>
           </p>
         </div>
       </li>
